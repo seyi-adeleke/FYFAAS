@@ -2,7 +2,7 @@ const ejs = require('ejs');
 
 
 const html = (res, data) => {
-    res.send(ejs.render('<p>Dear, <%=to;%></p>' +
+    res.send(ejs.render('<p>Dear <%=to;%>,</p>' +
         '<p><%=message;%></p>' +
         '<em><%=from;%></em>', { from: data.from, message: data.message, to: data.to }));
 };
@@ -17,7 +17,7 @@ const json = (res, data) => {
 };
 
 const text = (res, data) => {
-    res.status(200).send(`${data.message} ${data.from}`);
+    res.status(200).send(`Dear ${data.to}, ${data.message} ${data.from}`);
 };
 
 module.exports = {
