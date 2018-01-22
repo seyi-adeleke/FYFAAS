@@ -2,8 +2,9 @@ const ejs = require('ejs');
 
 
 const html = (res, data) => {
-    res.send(ejs.render('<p><%=message;%></p>' +
-        '<em><%=name;%></em>', { name: data.from, message: data.message }));
+    res.send(ejs.render('<p>Dear, <%=to;%></p>' +
+        '<p><%=message;%></p>' +
+        '<em><%=from;%></em>', { from: data.from, message: data.message, to: data.to }));
 };
 
 
